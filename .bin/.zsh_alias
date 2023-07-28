@@ -1,0 +1,20 @@
+# define aliases
+
+#Unix
+# ls
+alias ll='ls -lh'
+alias la='ll -A'
+
+## cd
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
+## vim
+alias v='vim'
+
+# git
+## WIP commit
+alias gip='git commit -m "[WIP]"'
+
+# ghq
+alias repo='ghq look'
