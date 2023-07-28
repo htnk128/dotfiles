@@ -1,0 +1,40 @@
+[user]
+    name = htnk128
+    email = hiroaki.tanaka128@gmail.com
+
+[github]
+    user = htnk128
+
+[core]
+    ignorecase = false
+    editor = vim
+	excludesfile = ~/.gitignore_global
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[color]
+    ui = auto
+    diff = auto
+    grep = auto
+    branch = auto
+    interactive = auto
+
+[grep]
+    lineNumber = true
+
+[pull]
+	rebase = false
+
+[push]
+    default = current
+
+[commit]
+	template = ~/.stCommitMsg
+
+[init]
+	defaultBranch = main
+	templatedir = ~/.git-templates/git-secrets
+
+[ghq]
+root = ~/go/src
