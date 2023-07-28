@@ -88,7 +88,7 @@ autoload colors
 colors
 
 P_CDIR="%B%F{cyan}%~%f%b"
-P_INFO="%F{magenta}htnk128%f@%F{yellow}$HOST%f"
+P_INFO="%F{magenta}hiroaki-tanaka128%f@%F{yellow}$HOST%f"
 P_VCS="%F{green}%1v%f"
 PROMPT="
 ($P_CDIR) $P_VCS
