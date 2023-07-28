@@ -6,7 +6,7 @@ function has() {
     type "$1" > /dev/null 2>&1
 }
 
-if has "brew"; then
+if has "xcode-select"; then
   echo "xcode-select is already installed"
 else
     # Install xcode
@@ -19,6 +19,3 @@ else
     # Install brew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-
-echo "Updating Homebrew..."
-brew update && brew upgrade
