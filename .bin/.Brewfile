@@ -30,6 +30,8 @@ brew "watch"
 brew "wget"
 brew "yq"
 brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
 
 # cask "dbeaver-community"
 cask "docker"
