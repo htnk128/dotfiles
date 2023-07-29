@@ -32,6 +32,7 @@ brew "yq"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 
 # cask "dbeaver-community"
 cask "docker"
