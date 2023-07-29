@@ -68,6 +68,21 @@ setopt hist_no_store
 # 余分な空白は詰めて記録
 setopt hist_reduce_blanks
 
+# emacs like keybind
+bindkey "^A" beginning-of-line
+bindkey "^B" backward-char
+bindkey "^D" delete-char-or-list
+bindkey "^E" end-of-line
+bindkey "^F" forward-char
+bindkey "^G" send-break
+bindkey "^K" kill-line
+bindkey "^L" clear-screen
+bindkey "^N" history-substring-search-down
+bindkey "^O" accept-line-and-down-history
+bindkey "^P" history-substring-search-up
+bindkey "^S" history-incremental-pattern-search-forward
+bindkey "^T" transpose-chars
+
 # プログラム関連の設定をロード
 if [ -e ~/.zsh_program ]; then
     source ~/.zsh_program
