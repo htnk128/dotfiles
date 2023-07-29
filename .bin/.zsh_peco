@@ -62,7 +62,7 @@ function peco-ssh () {
     fi
 }
 zle -N peco-ssh
-bindkey '^w' peco-ssh
+bindkey '^J' peco-ssh
 
 function peco-docker-images () {
   local image = $(docker images \
