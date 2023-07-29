@@ -23,6 +23,8 @@ SAVEHIST=1000000
 # brewでインスコしたやつのzsh補完リンク設定
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 autoload -Uz compinit && compinit -u
 
 # zsh: no matches found対策
