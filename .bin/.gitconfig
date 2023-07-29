@@ -8,10 +8,7 @@
 [core]
     ignorecase = false
     editor = vim
-	excludesfile = ~/.gitignore_global
-
-[url "git@github.com:"]
-    insteadOf = https://github.com/
+    excludesfile = ~/.gitignore_global
 
 [color]
     ui = auto
@@ -24,17 +21,13 @@
     lineNumber = true
 
 [pull]
-	rebase = false
+    rebase = false
 
 [push]
     default = current
 
 [commit]
-	template = ~/.stCommitMsg
-
-[init]
-	defaultBranch = main
-	templatedir = ~/.git-templates/git-secrets
+    template = ~/.stCommitMsg
 
 [ghq]
-root = ~/go/src
+    root = ~/src
