@@ -46,7 +46,6 @@
     },
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
-    "workbench.colorTheme": "Quiet Light",
     "workbench.colorCustomizations": {
       "terminal.background": "#090300",
       "terminal.foreground": "#A5A2A2",
@@ -143,5 +142,6 @@
       "editor.formatOnSave": true,
       "editor.formatOnSaveMode": "modifications",
       "editor.tabSize": 2
-    }
+    },
+    "window.autoDetectColorScheme": true
   }
