@@ -92,11 +92,10 @@ autoload colors
 colors
 
 P_CDIR="%B%F{cyan}%~%f%b"
-P_INFO="%F{magenta}htnk128%f@%F{yellow}$HOST%f"
 P_VCS="%F{green}%1v%f"
 PROMPT="
-($P_CDIR) $P_VCS
-$P_INFO $ "
+%F{magenta}%n%f@%F{yellow}$HOST%f:$P_CDIR $P_VCS
+$ "
 
 # 補完関数の表示を強化する
 zstyle ':completion:*' verbose yes
