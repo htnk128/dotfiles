@@ -143,5 +143,11 @@
       "editor.formatOnSaveMode": "modifications",
       "editor.tabSize": 2
     },
+    "[go]": {
+      "editor.defaultFormatter": "golang.go",
+      "editor.insertSpaces": false,
+      "editor.formatOnSave": true,
+      "editor.tabSize": 2
+    },
     "window.autoDetectColorScheme": true
   }
