@@ -1,6 +1,6 @@
 [user]
-    name = htnk128
-    email = hiroaki.tanaka128@gmail.com
+    name = Hiroaki Tanaka
+    email = hiroaki.tanaka128@gmail.com 
 
 [github]
     user = htnk128
@@ -31,3 +31,9 @@
 
 [ghq]
     root = ~/src
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
