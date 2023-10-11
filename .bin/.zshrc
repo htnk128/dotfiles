@@ -133,3 +133,13 @@ zstyle ':completion:*:manuals' separate-sections true
 if [ -e ~/.zsh_peco ]; then
     source ~/.zsh_peco
 fi
+
+# asdf
+if [ -e /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
+
+# java
+if [ -e /.asdf/plugins/java/set-java-home.zsh ]; then
+  . ~/.asdf/plugins/java/set-java-home.zsh
+fi
