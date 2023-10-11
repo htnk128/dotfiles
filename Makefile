@@ -1,5 +1,5 @@
 # Do everything.
-all: init link defaults brew
+all: init link defaults brew program
 
 # Set initial preference.
 init:
@@ -24,3 +24,7 @@ defaults:
 # Install macOS applications.
 brew:
 	bash .bin/brew.sh
+
+# Install program.
+program:
+	bash .bin/program.sh
