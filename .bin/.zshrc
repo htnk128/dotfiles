@@ -83,6 +83,16 @@ bindkey "^P" history-substring-search-up
 bindkey "^S" history-incremental-pattern-search-forward
 bindkey "^T" transpose-chars
 
+# asdf
+if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
+
+# java
+if [ -f ~/.asdf/plugins/java/set-java-home.zsh ]; then
+  . ~/.asdf/plugins/java/set-java-home.zsh
+fi
+
 # プログラム関連の設定をロード
 if [ -e ~/.zsh_program ]; then
     source ~/.zsh_program
@@ -132,14 +142,4 @@ zstyle ':completion:*:manuals' separate-sections true
 # peco
 if [ -e ~/.zsh_peco ]; then
     source ~/.zsh_peco
-fi
-
-# asdf
-if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
-fi
-
-# java
-if [ -f ~/.asdf/plugins/java/set-java-home.zsh ]; then
-  . ~/.asdf/plugins/java/set-java-home.zsh
 fi
