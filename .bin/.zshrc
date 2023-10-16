@@ -95,12 +95,12 @@ fi
 
 # プログラム関連の設定をロード
 if [ -e ~/.zsh_program ]; then
-    source ~/.zsh_program
+  source ~/.zsh_program
 fi
 
 # その端末固有の設定をロードする
 if [ -e ~/.zsh_local ]; then
-    source ~/.zsh_local
+  source ~/.zsh_local
 fi
 
 # プロンプトの設定
@@ -141,5 +141,5 @@ zstyle ':completion:*:manuals' separate-sections true
 
 # peco
 if [ -e ~/.zsh_peco ]; then
-    source ~/.zsh_peco
+  source ~/.zsh_peco
 fi
