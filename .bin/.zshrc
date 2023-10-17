@@ -93,16 +93,6 @@ if [ -f ~/.asdf/plugins/java/set-java-home.zsh ]; then
   . ~/.asdf/plugins/java/set-java-home.zsh
 fi
 
-# プログラム関連の設定をロード
-if [ -e ~/.zsh_program ]; then
-  source ~/.zsh_program
-fi
-
-# その端末固有の設定をロードする
-if [ -e ~/.zsh_local ]; then
-  source ~/.zsh_local
-fi
-
 # プロンプトの設定
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
@@ -147,3 +137,13 @@ fi
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/hiroakitanaka/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# プログラム関連の設定をロード
+if [ -e ~/.zsh_program ]; then
+  source ~/.zsh_program
+fi
+
+# その端末固有の設定をロードする
+if [ -e ~/.zsh_local ]; then
+  source ~/.zsh_local
+fi
