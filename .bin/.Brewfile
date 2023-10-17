@@ -31,6 +31,8 @@ brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "asdf"
+brew "newman"
+brew "golang-migrate"
 
 # cask "dbeaver-community"
 cask "docker"
