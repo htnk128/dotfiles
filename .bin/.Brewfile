@@ -33,6 +33,7 @@ brew "zsh-syntax-highlighting"
 brew "asdf"
 brew "newman"
 brew "golang-migrate"
+brew "golangci-lint"
 
 # cask "dbeaver-community"
 # cask "docker"
