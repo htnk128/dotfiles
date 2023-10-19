@@ -36,7 +36,7 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 cask "alfred"
-cask "dbeaver-community"
+# cask "dbeaver-community"
 # cask "docker"
 cask "goland"
 cask "google-chrome"
