@@ -6,3 +6,6 @@
 
 # General
 .DS_Store
+
+# asdf
+.tool-versions
