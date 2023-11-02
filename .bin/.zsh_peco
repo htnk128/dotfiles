@@ -63,13 +63,3 @@ function peco-ssh () {
 }
 zle -N peco-ssh
 bindkey '^J' peco-ssh
-
-function peco-docker-images () {
-  local image = $(docker images \
-      | grep -v REPOSITORY \
-      | peco --query $LBUFFER
-                  )
-  echo $BUFFER
-}
-zle -N peco-docker-images
-bindkey '^n' peco-docker-images
