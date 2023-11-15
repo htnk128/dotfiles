@@ -147,3 +147,8 @@ fi
 if [ -e ~/.zsh_local ]; then
   source ~/.zsh_local
 fi
+
+# .envをロードする
+if [ -e ~/.zsh_dotenv ]; then
+  source ~/.zsh_dotenv
+fi
