@@ -180,5 +180,11 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false
+  },
+  "jest.jestCommandLine": "npm run test --",
+  "jest.showTerminalOnLaunch": false,
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-file"
   }
 }
