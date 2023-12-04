@@ -134,10 +134,6 @@ if [ -e ~/.zsh_peco ]; then
   source ~/.zsh_peco
 fi
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/hiroakitanaka/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 # プログラム関連の設定をロード
 if [ -e ~/.zsh_program ]; then
   source ~/.zsh_program
