@@ -186,5 +186,12 @@
   "jest.autoRun": {
     "watch": false,
     "onSave": "test-file"
-  }
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "security.workspace.trust.untrustedFiles": "open"
 }
