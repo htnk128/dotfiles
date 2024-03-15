@@ -130,9 +130,15 @@ zstyle ':completion:*' list-separator '-->'
 zstyle ':completion:*:manuals' separate-sections true
 
 # peco
-if [ -e ~/.zsh_peco ]; then
-  source ~/.zsh_peco
+# if [ -e ~/.zsh_peco ]; then
+#   source ~/.zsh_peco
+# fi
+
+# fzf
+if [ -e ~/.zsh_fzf ]; then
+  source ~/.zsh_fzf
 fi
+
 
 # プログラム関連の設定をロード
 if [ -e ~/.zsh_program ]; then
