@@ -108,7 +108,7 @@
     "editor.formatOnSaveMode": "modifications",
     "editor.tabSize": 2,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[javascriptreact]": {
@@ -117,7 +117,7 @@
     "editor.formatOnSaveMode": "modifications",
     "editor.tabSize": 2,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[json]": {
@@ -155,7 +155,7 @@
     "editor.formatOnSaveMode": "modifications",
     "editor.tabSize": 2,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[typescriptreact]": {
@@ -164,7 +164,7 @@
     "editor.formatOnSaveMode": "modifications",
     "editor.tabSize": 2,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     }
   },
   "[go]": {
