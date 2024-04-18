@@ -15,7 +15,7 @@ defaults write com.apple.dock show-recents -bool false
 # 開いているアプリケーションのインジケータライトを表示する
 defaults write com.apple.dock show-process-indicators -bool true
 ## Dockを右側に移動
-defaults write com.apple.dock orientation -string "left"
+defaults write com.apple.dock orientation -string "right"
 
 # Finder
 ## リストビューをデフォルトにする
