@@ -193,5 +193,6 @@
     }
   },
   "editor.unicodeHighlight.nonBasicASCII": false,
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "github.copilot.editor.enableAutoCompletions": true
 }
