@@ -194,5 +194,8 @@
   },
   "editor.unicodeHighlight.nonBasicASCII": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "makefile.configureOnOpen": false,
+  "jest.enable": false,
+  "githubLocalActions.dockerDesktopPath": "/Applications/Docker.app"
 }
