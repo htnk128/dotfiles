@@ -62,4 +62,4 @@ function fzf-ssh () {
     fi
 }
 zle -N fzf-ssh
-bindkey '^J' fzf-ssh
+bindkey '^j' fzf-ssh
