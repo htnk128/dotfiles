@@ -82,8 +82,8 @@ bindkey "^L" clear-screen
 # bindkey "^P" history-substring-search-up
 # bindkey "^S" history-incremental-pattern-search-forward
 # bindkey "^T" transpose-chars
-bindkey "^O" forward-word
-bindkey "^P" backward-word
+bindkey "^P" forward-word
+bindkey "^O" backward-word
 
 # asdf
 if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
