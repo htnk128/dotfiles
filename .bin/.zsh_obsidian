@@ -18,5 +18,3 @@ function th() {
     FORMATED_CONTENT=$'\n- '`date +'%H:%M'`' '"$CONTENT"
     echo -n $FORMATED_CONTENT >> "$DAILY_NOTE_FULL_PATH"
 }
-zle -N th
-bindkey '^T' th
