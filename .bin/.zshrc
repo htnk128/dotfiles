@@ -141,6 +141,11 @@ if [ -e ~/.zsh_fzf ]; then
   source ~/.zsh_fzf
 fi
 
+# obsidian
+if [ -e ~/.zsh_obsidian ]; then
+  source ~/.zsh_obsidian
+fi
+
 # プログラム関連の設定をロード
 if [ -e ~/.zsh_program ]; then
   source ~/.zsh_program
@@ -155,3 +160,7 @@ fi
 if [ -e ~/.zsh_dotenv ]; then
   source ~/.zsh_dotenv
 fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/hiroakitanaka/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

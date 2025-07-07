@@ -1,0 +1,22 @@
+# thinoコマンド
+function th() {
+    VAULT_NAME="my_note"
+    VAULT_PHYSICAL_PATH="${HOME}/src/github.com/htnk128/my-note/${VAULT_NAME}"
+
+    DAILY_NOTE_RELATIVE_PATH="daily/$(date +'%y-%m-%d').md"
+    TEMPLATE_RELATIVE_PATH="config/templates/DailyNoteTemplate.md"
+
+    DAILY_NOTE_FULL_PATH="${VAULT_PHYSICAL_PATH}/${DAILY_NOTE_RELATIVE_PATH}"
+    TEMPLATE_FULL_PATH="${VAULT_PHYSICAL_PATH}/${TEMPLATE_RELATIVE_PATH}"
+
+    if [ ! -f "$DAILY_NOTE_FULL_PATH" ]; then
+        echo "デイリーノートが存在しないため、テンプレートから作成します..."
+        cp "$TEMPLATE_FULL_PATH" "$DAILY_NOTE_FULL_PATH"
+    fi
+
+    CONTENT="$1"
+    FORMATED_CONTENT=$'\n- '`date +'%H:%M'`' '"$CONTENT"
+    echo -n $FORMATED_CONTENT >> "$DAILY_NOTE_FULL_PATH"
+}
+zle -N th
+bindkey '^T' th
