@@ -3,7 +3,7 @@ function th() {
     VAULT_NAME="my_note"
     VAULT_PHYSICAL_PATH="${HOME}/src/github.com/htnk128/my-note/${VAULT_NAME}"
 
-    DAILY_NOTE_RELATIVE_PATH="daily/$(date +'%y-%m-%d').md"
+    DAILY_NOTE_RELATIVE_PATH="daily/$(TZ='Asia/Tokyo' date +'%y-%m-%d').md"
     TEMPLATE_RELATIVE_PATH="config/templates/DailyNoteTemplate.md"
 
     DAILY_NOTE_FULL_PATH="${VAULT_PHYSICAL_PATH}/${DAILY_NOTE_RELATIVE_PATH}"
@@ -15,6 +15,6 @@ function th() {
     fi
 
     CONTENT="$1"
-    FORMATED_CONTENT=$'\n- '`date +'%H:%M'`' '"$CONTENT"
+    FORMATED_CONTENT=$'\n- '`TZ='Asia/Tokyo' date +'%H:%M'`' '"$CONTENT"
     echo -n $FORMATED_CONTENT >> "$DAILY_NOTE_FULL_PATH"
 }

@@ -209,5 +209,7 @@
   ],
   "print.folder.maxLines": 1200,
   "print.folder.maxFiles": 30,
-  "print.folder.includeFileList": false
+  "print.folder.includeFileList": false,
+  "terminal.integrated.scrollback": 10000,
+  "github.copilot.nextEditSuggestions.enabled": true
 }
