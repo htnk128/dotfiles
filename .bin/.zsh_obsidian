@@ -1,8 +1,8 @@
 # thinoコマンド
 function th() {
     VAULT_NAME="my_note"
-    VAULT_PHYSICAL_PATH="${HOME}/src/github.com/htnk128/my-note/${VAULT_NAME}"
-
+    VAULT_PHYSICAL_PATH="${HOME}/Google Drive/マイドライブ/obsidian/my-note/${VAULT_NAME}"
+    
     DAILY_NOTE_RELATIVE_PATH="daily/$(TZ='Asia/Tokyo' date +'%y-%m-%d').md"
     TEMPLATE_RELATIVE_PATH="config/templates/DailyNoteTemplate.md"
 
