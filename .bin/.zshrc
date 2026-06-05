@@ -68,6 +68,9 @@ setopt hist_no_store
 # 余分な空白は詰めて記録
 setopt hist_reduce_blanks
 
+# タイムスタンプを記録
+setopt extended_history
+
 # emacs like keybind
 bindkey "^A" beginning-of-line
 bindkey "^B" backward-char
@@ -160,7 +163,3 @@ fi
 if [ -e ~/.zsh_dotenv ]; then
   source ~/.zsh_dotenv
 fi
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/hiroakitanaka/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
