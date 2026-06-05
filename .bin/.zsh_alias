@@ -21,3 +21,6 @@ alias repo='ghq look'
 
 # fzf
 alias awsp='export AWS_PROFILE=$(aws configure list-profiles | fzf --reverse)'
+
+# history with timestamp
+alias history='history -i'
