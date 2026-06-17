@@ -2,7 +2,7 @@
 #
 # 使い方:
 #   coco                 → fzf で接続を選んで cortex -c <選択> で起動（対話モード）
-#   coco -c ACCOUNT_TKK  → そのまま cortex -c ACCOUNT_TKK (fzf スキップ)
+#   coco -c ACCOUNT_ABC  → そのまま cortex -c ACCOUNT_ABC (fzf スキップ)
 #   coco --help          → cortex --help
 
 # coco: cortex のラッパー。-c 未指定時は fzf で接続を選択
