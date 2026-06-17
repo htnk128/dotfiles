@@ -1,8 +1,9 @@
 # vim like
 bindkey -v
 
-if [ -e /opt/homebrew/bin/brew ]; then
-  export PATH=$PATH:/opt/homebrew/bin
+typeset -g HOMEBREW_PREFIX="/opt/homebrew"
+if [[ -x "$HOMEBREW_PREFIX/bin/brew" ]]; then
+  path+=("$HOMEBREW_PREFIX/bin")
 fi
 
 # aliases
@@ -21,13 +22,47 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # brewでインスコしたやつのzsh補完リンク設定
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+if [[ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]]; then
+  fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+fi
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# compaudit を無効化してパフォーマンス向上（11.42ms削減）
+compaudit() { return 0 }
 
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# 補完システムの初期化（キャッシュを優先）
+autoload -Uz compinit
+typeset -g ZCOMPDUMP_PATH="${ZDOTDIR:-$HOME}/.zcompdump"
 
-autoload -Uz compinit && compinit -u
+# キャッシュが存在し、24時間以内なら検証スキップ
+if [[ -f "$ZCOMPDUMP_PATH" ]]; then
+  # ファイルが24時間以内かチェック
+  if [[ -n ${ZCOMPDUMP_PATH}(#qNmh-24) ]]; then
+    # キャッシュ使用（検証スキップ）
+    compinit -C -d "$ZCOMPDUMP_PATH"
+  else
+    # キャッシュが古い場合は再生成
+    compinit -d "$ZCOMPDUMP_PATH"
+  fi
+else
+  # キャッシュが存在しない場合は生成
+  compinit -d "$ZCOMPDUMP_PATH"
+fi
+
+# zsh-autosuggestions と zsh-syntax-highlighting は遅延ロード
+# precmd フックで初回プロンプト表示後に読み込み
+_load_plugins_once() {
+  if [[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+    source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  fi
+  if [[ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+    source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  fi
+  add-zsh-hook -d precmd _load_plugins_once
+  unset -f _load_plugins_once
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _load_plugins_once
 
 # zsh: no matches found対策
 setopt nonomatch
@@ -89,8 +124,14 @@ bindkey "^P" forward-word
 bindkey "^O" backward-word
 
 # asdf
-if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+ASDF_SH_PATH="$HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh"
+if [[ -f "$ASDF_SH_PATH" ]]; then
+  # asdf 本体は初回利用時にロードして起動時間を短縮する
+  asdf() {
+    unset -f asdf
+    . "$ASDF_SH_PATH"
+    asdf "$@"
+  }
 fi
 
 # java
@@ -149,6 +190,11 @@ if [ -e ~/.zsh_obsidian ]; then
   source ~/.zsh_obsidian
 fi
 
+# cortex
+if [ -e ~/.zsh_cortex ]; then
+  source ~/.zsh_cortex
+fi
+
 # プログラム関連の設定をロード
 if [ -e ~/.zsh_program ]; then
   source ~/.zsh_program
@@ -162,4 +208,10 @@ fi
 # .envをロードする
 if [ -e ~/.zsh_dotenv ]; then
   source ~/.zsh_dotenv
+fi
+
+# 他の PATH 再配置後でも asdf shims を最優先にする
+ASDF_SHIMS_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
+if [[ -d "$ASDF_SHIMS_DIR" ]]; then
+  path=("$ASDF_SHIMS_DIR" ${path:#$ASDF_SHIMS_DIR})
 fi

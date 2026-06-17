@@ -1,0 +1,36 @@
+# cortex CLI ラッパー
+#
+# 使い方:
+#   coco                 → fzf で接続を選んで cortex -c <選択> で起動（対話モード）
+#   coco -c ACCOUNT_ABC  → そのまま cortex -c ACCOUNT_ABC (fzf スキップ)
+#   coco --help          → cortex --help
+
+# coco: cortex のラッパー。-c 未指定時は fzf で接続を選択
+function coco() {
+    # 引数に -c/--connection が含まれているかチェック
+    local has_connection=false
+    for arg in "$@"; do
+        if [[ "$arg" == "-c" || "$arg" == "--connection" || "$arg" == --connection=* ]]; then
+            has_connection=true
+            break
+        fi
+    done
+
+    if [[ "$has_connection" == false ]]; then
+        local connections=$(cortex connections list | jq -r '.connections | keys[]')
+        if [[ -z "$connections" ]]; then
+            echo "接続が見つかりません" >&2
+            return 1
+        fi
+
+        local conn=$(echo "$connections" | fzf --reverse --prompt='connection> ')
+        if [[ -z "$conn" ]]; then
+            echo "接続が選択されませんでした" >&2
+            return 1
+        fi
+
+        cortex -c "$conn" "$@"
+    else
+        cortex "$@"
+    fi
+}
