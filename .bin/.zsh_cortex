@@ -9,6 +9,8 @@
 function coco() {
     # 引数に -c/--connection が含まれているかチェック
     local has_connection=false
+    local selected_conn=""
+
     for arg in "$@"; do
         if [[ "$arg" == "-c" || "$arg" == "--connection" || "$arg" == --connection=* ]]; then
             has_connection=true
@@ -23,14 +25,40 @@ function coco() {
             return 1
         fi
 
-        local conn=$(echo "$connections" | fzf --reverse --prompt='connection> ')
-        if [[ -z "$conn" ]]; then
+        selected_conn=$(echo "$connections" | fzf --reverse --prompt='connection> ')
+        if [[ -z "$selected_conn" ]]; then
             echo "接続が選択されませんでした" >&2
             return 1
         fi
 
-        cortex -c "$conn" "$@"
+        _coco_update_agent_connection "$selected_conn"
+        cortex -c "$selected_conn" "$@"
     else
+        local next_is_conn=false
+        for arg in "$@"; do
+            if [[ "$next_is_conn" == true ]]; then
+                selected_conn="$arg"
+                break
+            fi
+            if [[ "$arg" == "-c" || "$arg" == "--connection" ]]; then
+                next_is_conn=true
+            elif [[ "$arg" == --connection=* ]]; then
+                selected_conn="${arg#--connection=}"
+                break
+            fi
+        done
+
+        [[ -n "$selected_conn" ]] && _coco_update_agent_connection "$selected_conn"
         cortex "$@"
+    fi
+}
+
+# settings.json の cortexAgentConnectionName を更新
+function _coco_update_agent_connection() {
+    local conn="$1"
+    local settings_file="$HOME/.snowflake/cortex/settings.json"
+    if [[ -f "$settings_file" ]]; then
+        jq --arg conn "$conn" '.cortexAgentConnectionName = $conn' "$settings_file" > "${settings_file}.tmp" \
+            && mv "${settings_file}.tmp" "$settings_file"
     fi
 }
